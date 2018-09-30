@@ -1,0 +1,51 @@
+#
+# @file     Makefile_recursion_visualized
+# @author   Konstantin Rebrov
+# @version  07/16/2018
+#
+# Recursion Visualized Project
+#
+# @section DESCRIPTION
+#
+# This is the Makefile for the Recursion Visualized Project.
+# To create the executable:
+# make --makefile=Makefile_recursion_visualized
+#
+
+# Command-line options for the compiler
+CC=gcc
+CFLAGS=-g -std=gnu89 -Wall -Wextra
+SDL_INCLUDE=`sdl2-config --cflags`
+SDL_LIBS=`sdl2-config --libs`
+
+# Files to be processed
+INCLUDE=recursion_visualized_header.h
+SOURCE_FILES=recursion_visualized_main.c recursion_visualized_defs.c
+OBJECT_FILES=recursion_visualized_main.o recursion_visualized_defs.o
+EXECUTABLE=Recursion_Visualized
+MAKEFILE=Makefile_recursion_visualized
+
+# Automatically install the SDL2 libraries.
+install_SDL2:
+	sudo apt-get install libsdl2-2.0
+	sudo apt-get install libsdl2-dev
+
+# Builds and runs the executable all in one command!
+run: $(EXECUTABLE)
+	./$<
+
+$(EXECUTABLE): $(OBJECT_FILES)
+	$(CC) $(CFLAGS) -o $@ $^ $(SDL_LIBS)
+
+recursion_visualized_main.o: recursion_visualized_main.c $(INCLUDE)
+	$(CC) $(CFLAGS) -c $< $(SDL_INCLUDE)
+
+recursion_visualized_defs.o: recursion_visualized_defs.c $(INCLUDE)
+	$(CC) $(CFLAGS) -c $< $(SDL_INCLUDE)
+
+# Creates a tarball with the code files.
+recursion_visualized.tar: $(SOURCE_FILES) $(INCLUDE) $(MAKEFILE)
+	tar -cvf recursion_visualized.tar $(SOURCE_FILES) $(INCLUDE) $(MAKEFILE)
+
+clean:
+	rm -f $(OBJECT_FILES) $(EXECUTABLE)
