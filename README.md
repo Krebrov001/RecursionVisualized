@@ -28,4 +28,4 @@ Then to start the program just do:
 
 This diagram explains how the recursion stack is drawn by the program.
 
-![Alt text](/Screenshots/recursion_notes.png?raw=true "Cover")
+![Alt text](/Screenshots/recursion_notes.jpg?raw=true "Cover")
