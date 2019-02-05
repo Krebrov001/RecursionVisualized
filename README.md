@@ -24,8 +24,8 @@ Then to start the program just do:
 * make --makefile=Makefile_recursion_visualized run
 </b>
 
-![Alt text](/Screenshots/Tower_of_Hanoi.png?raw=true "Cover")
+![Alt text](/Screenshots/recursion_visualized.png?raw=true "Cover")
 
 This diagram explains how the recursion stack is drawn by the program.
 
-![Alt text](/Screenshots/Tower_of_Hanoi.png?raw=true "Cover")
+![Alt text](/Screenshots/recursion_notes.png?raw=true "Cover")
